@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatma & Fatih - Düğün Sayfası</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f2ff;
+      color: #333;
+      padding-bottom: 120px;
+    }
+
+    header {
+      background: linear-gradient(to right, #007BFF, #28A745);
+      color: white;
+      padding: 30px 15px;
+      text-align: center;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 10px 15px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .menu a.active {
+      color: #28A745;
+    }
+
+    .menu a:hover {
+      color: #28A745;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #007BFF;
+      margin: 4px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 0;
+      }
+
+      .menu a {
+        padding: 10px;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .content {
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .video-container {
+      margin-top: 20px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 7px;
+      box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>FATMA & FATİH</h1>
+    <p>yıldız Park Düğün Salonları | Tandoğan, Sincan / Ankara</p>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="menu" id="menu">
+        <a href="index.html">Anasayfa</a>
+        <a href="kina.html">Kına</a>
+        <a href="salon-tarihi.html">Salon Tarihi</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h2>Hoş Geldiniz</h2>
+
+
+    <div class="video-container">
+      <video controls>
+        <source src="Comp 1_1.mp4" type="video/mp4" />
+        Tarayıcınız video etiketini desteklemiyor.
+      </video>
+    </div>
+  </div>
+
+  <!-- Aktif menü ve hamburger için JS -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // Aktif menü linkini belirle
+    const links = document.querySelectorAll(".menu a");
+    const current = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+      if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+
+</html>
